@@ -1,0 +1,35 @@
+import React,{ useState } from 'react';
+import { Link } from 'react-router-dom'
+
+
+const Home = () => {
+const [open,setOpen] = useState(false)
+
+    function handleOpen(){
+    setOpen(true)
+    }
+
+    function handleClose(){
+        setOpen(false);
+    }
+
+    const Custom = ({visible,handleClose}) => {
+        if(!visible) return null;
+      return (
+        <div>
+            <h1>Modal </h1>
+            <button onClick={handleClose}>Close</button>
+        </div>
+      )
+    }
+
+  return (
+    <div>
+       <h1>Home</h1>
+       <button onClick={handleOpen}>Click</button>
+      <Custom visible={open} handleClose={handleClose}/>
+    </div>
+  )
+}
+
+export default Home
